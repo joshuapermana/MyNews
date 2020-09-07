@@ -1,1 +1,1 @@
-global.url =  "http://192.168.11.146:3700/"
+global.url =  "https://mynews-be.herokuapp.com/"
