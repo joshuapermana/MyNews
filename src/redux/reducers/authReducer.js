@@ -32,7 +32,8 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...{
-          token,
+          email,
+          uid,
           regist: true,
           newUser: true,
         },

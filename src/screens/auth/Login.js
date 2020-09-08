@@ -14,13 +14,9 @@ import {
 import { Button, Input, Text } from 'react-native-elements';
 import validator from 'validator';
 import AsyncStorage from '@react-native-community/async-storage';
-
 import Icon from 'react-native-vector-icons/FontAwesome5';
-// Imports: Firebase
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
-
-// Imports: Redux Actions
 import { connect } from 'react-redux';
 import { account, login } from '../../redux/actions/authActions';
 
@@ -37,7 +33,6 @@ export class Login extends Component {
   onLogin = async () => {
     const { email, password } = this.state;
     if (email && password) {
-      // if (validator.isEmail(email)) {
       console.log('hallo')
       if (validator.isByteLength(password, { min: 2, max: 14 })) {
         this.setState({ isLoading: true });
@@ -54,11 +49,11 @@ export class Login extends Component {
           this.setState({ isLoading: false });
         }
       } else {
-        ToastAndroid.show('Password harus valid', ToastAndroid.SHORT);
+        ToastAndroid.show('Password not valid', ToastAndroid.SHORT);
       }
 
     } else {
-      ToastAndroid.show('Semua input harus terpenuhi', ToastAndroid.SHORT);
+      ToastAndroid.show('All forms must be filled', ToastAndroid.SHORT);
     }
 
   }
@@ -134,7 +129,6 @@ const styles = StyleSheet.create({
   },
 });
 
-// Map State To Props (Redux Store Passes State To Component)
 const mapStateToProps = (state) => {
   // Redux Store --> Component
   return {
@@ -142,7 +136,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// Map Dispatch To Props (Dispatch Actions To Reducers. Reducers Then Modify The Data And Assign It To Your Props)
 const mapDispatchToProps = (dispatch) => {
   // Action
   return {
@@ -150,6 +143,4 @@ const mapDispatchToProps = (dispatch) => {
     login: (request) => dispatch(login(request)),
   };
 };
-
-// Exports
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -67,13 +67,13 @@ export class Landing extends Component {
           <View style={{ height: 70, width: '100%', backgroundColor: '#191919', alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ color: '#FCFAF7', fontSize: 20, fontFamily: 'Robotto' }}>MyNews</Text>
           </View>
-          <View style={{ height: 190, width: '100%', backgroundColor: '#191919', alignItems: 'center', flexDirection: 'row', padding: 10 }}>
+          <View style={{ height: 230, width: '100%', backgroundColor: '#191919', alignItems: 'center', flexDirection: 'row', padding: 10 }}>
             <FlatList
               data={this.state.news_}
               bounces={true}
               horizontal
               showsHorizontalScrollIndicator={false}
-              style={{ width: '100%' }}
+              style={{ width: '100%',marginTop:-20 }}
               showsVerticalScrollIndicator={false}
               keyExtractor={item => item.id}
               renderItem={({ item }) => (
@@ -94,7 +94,7 @@ export class Landing extends Component {
                 </View>
               )} />
           </View>
-          <View style={{ paddingLeft: 20, paddingTop: 20 }}>
+          <View style={{ paddingLeft: 20, paddingTop: 20,marginTop:-20,borderTopLeftRadius:20,borderTopRightRadius:20,backgroundColor:'#FAFAFA' }}>
             <View>
               <Text style={{ fontWeight: 'bold' }}>Latest News</Text>
             </View>

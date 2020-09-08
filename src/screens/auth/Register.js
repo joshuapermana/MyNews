@@ -128,7 +128,6 @@ const styles = StyleSheet.create({
   },
 });
 
-// Map State To Props (Redux Store Passes State To Component)
 const mapStateToProps = (state) => {
   // Redux Store --> Component
   return {
@@ -136,14 +135,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-// Map Dispatch To Props (Dispatch Actions To Reducers. Reducers Then Modify The Data And Assign It To Your Props)
 const mapDispatchToProps = (dispatch) => {
-  // Action
   return {
-    // Register
     register: (request) => dispatch(register(request)),
   };
 };
 
-// Exports
 export default connect(mapStateToProps, mapDispatchToProps)(Register);
